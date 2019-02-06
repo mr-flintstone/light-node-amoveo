@@ -127,7 +127,7 @@ function newhash2integer(h) {
         }
         return x;
     }
-    
+
     return hash2integer2(h.concat([255]), 0, 0);
 }
 function button_maker2(val, fun) {
@@ -135,6 +135,7 @@ function button_maker2(val, fun) {
     button.type = "button";
     button.value = val;
     button.onclick = fun;
+    button.style.height = '25px';
     return button;
 }
 function br() {
@@ -197,4 +198,3 @@ function parse_address(A) {
 function read_veo(X) {
     return Math.floor(parseFloat(X.value, 10) * token_units());
 }
-    

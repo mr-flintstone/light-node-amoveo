@@ -1,10 +1,8 @@
+var xyz = 1;
 
 //var myInterval = window.setInterval(function() {
 //    headers_object.gimmeheaders;
 //}, 5000);
-
-
-
 
 function headers_main() {
   //   var mode = "production";
@@ -86,6 +84,7 @@ function headers_main() {
 
     more_headers();
   //  window.setInterval(console.log("headers refreshed"),10000);
+
     stablecoin_UI();
     function write_header(header, ewah) {
 	//console.log("write header");
@@ -95,7 +94,7 @@ function headers_main() {
             top_header = header;
 	    //console.log("wallet text update");
 //            wallet_text.innerHTML = JSON.stringify([["height", header[1]], ["total work", (Math.floor(header[9]/100000000))]]);
-            wallet_text.innerHTML = "Height: " + header[1];
+            wallet_text.innerHTML = "Height: " + header[1] + " / " + serverheight;
             wallet_text.style.fontStyle = "normal";
             //JSON.stringify([["height", header[1]], ["total work", (Math.floor(header[9]/100000000))]]);
 
@@ -385,8 +384,26 @@ function headers_main() {
         }
         if (get_more) { more_headers(); }
     }
+
+
+    var serverheight;
+
     function more_headers() {
       // console.log('more headers v5');
+
+  variable_public_get(["height"], function(server_height) {
+        //  if (!(header_height == server_height)) {
+           serverheight = server_height;
+      //  console.log("server height: " + server_height);
+        //  throw("lightning spend error");
+
+
+//console.log("top header: " +  top_header[1]);
+//console.log("server height:" + serverheight);
+
+  //    console.log("api height: " + server_height);
+
+    //  console.log("top header: " + top_header);
         var n;
         if ( top_header == 0 ) {
             n = 0;
@@ -396,6 +413,35 @@ function headers_main() {
         variable_public_get(["headers", headers_batch + 1, n], absorb_headers);
 
       //  console.log("headers updated");
+
+
+
+if (top_header[1] == serverheight) {
+//  console.log("nonce3 is: " + xyz);
+  if (xyz > 1){
+//    console.log("nonce3 defined, aborting account UI load");
+}else{
+  //  console.log("nonce3 undefined, loading account UI");
+          keys.loadtext.style.display = "";
+          keys.fileselector.style.display = "";
+
+
+          keys.loadtext.style.display = "";
+          keys.fileselector.style.display = "";
+
+
+          keys.loadtext.style.display = "";
+          keys.fileselector.style.display = "";
+
+
+          keys.loadtext.style.display = "";
+          keys.fileselector.style.display = "";
+
+          xyz++;
+    //      console.log("nonce3 is2" + xyz);
+        }
+  }
+    });
     }
 
 //    window.setInterval(more_headers(),10000);

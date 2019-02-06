@@ -62,6 +62,7 @@ function spend_1() {
     div.appendChild(input_info);
     div.appendChild(spend_address);
     div.appendChild(document.createElement("br"));
+    div.appendChild(document.createElement("br"));
     div.appendChild(spend_button);
   //  div.appendChild(raw_button);
   //  div.appendChild(calculate_max_send_button);

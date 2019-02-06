@@ -28,6 +28,24 @@ function keys_function1() {
 //    var load_text = document.createTextNode("Load Private Key: ");
     load_text.setAttribute("id", "load_private_key");
 
+
+
+    load_text.style.display = "initial";
+    file_selector.style.display = "intitial";
+
+
+    load_text.style.display = "block";
+    file_selector.style.display = "block";
+
+
+    load_text.style.display = "unset";
+    file_selector.style.display = "unset";
+
+
+    load_text.style.display = "none";
+    file_selector.style.display = "none";
+
+
     //var watch_only_instructions = document.createTextNode("put your pubkey here to make a watch-only wallet that is unable to spend money.");
     //var watch_only_pubkey = document.createElement("input");
     //watch_only_pubkey.type = "text";
@@ -50,7 +68,7 @@ function keys_function1() {
     document.body.appendChild(div);
 
   //  append_children(div, [load_text, file_selector, br(), pub_div, br(), save_name, save_button, br(), watch_only_instructions, watch_only_pubkey, watch_only_button, br(), new_pubkey_button, new_pubkey_div, br(), bal_div, balance_button]);
-    append_children(div, [load_text, br(), file_selector, pub_div, br(), bal_div, br(),save_button, save_button2, balance_button]);
+    append_children(div, [load_text,br(), br(), file_selector, pub_div, br(), bal_div, br(),save_button, save_button2, balance_button]);
 
     //update_pubkey();
     function input_maker(val) {
@@ -169,6 +187,8 @@ function keys_function1() {
               file_selector.style.display = "none";
 	update_pubkey();
     }
+
+
     function load_keys() {
         var file = (file_selector.files)[0];
         var reader = new FileReader();
@@ -219,6 +239,6 @@ function keys_function1() {
     function decrypt(val) {
 	return encryption_object.get(val, keys_internal);
     }
-    return {make: new_keys, pub: pubkey_64, _bal: update_balance, sign: sign_tx, ec: (function() { return ec; }), encrypt: encrypt, decrypt: decrypt, check_balance: check_balance};
+    return {make: new_keys, pub: pubkey_64, _bal: update_balance, sign: sign_tx, ec: (function() { return ec; }), encrypt: encrypt, decrypt: decrypt, check_balance: check_balance, fileselector: file_selector, loadtext: load_text};
 }
 var keys = keys_function1();

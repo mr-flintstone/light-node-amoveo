@@ -406,7 +406,7 @@ function returnTrueFalse(_bool2) {
         tv_display.innerHTML = ("Fee: ");
 
         var stable_title = document.createElement("h3");
-        stable_title.innerHTML = "BTC Stablecoin Market - February 5, 2019";
+        stable_title.innerHTML = "BTC Stablecoin Market - February 12, 2019";
 
     //    tv_display.innerHTML = ("it costs this much to keep a channel open. per block per coin: ").concat((tv).toString());
         //var channel_server_mode = document.createElement("h3");
@@ -447,7 +447,7 @@ function returnTrueFalse(_bool2) {
 
 //            append_children(div, [long_button,short_button, br(), price_info, price,br(),trade_type_info, trade_type, br(),trade_amount_info, trade_amount, br(), oid_info, oid, button, br(), bet_update_button, br(), br(), combine_cancel_button, br(), br(), list_bets_button, br(), bets_div,close_channel_button, br(), balance_div, channel_balance_button]);
 
-            append_children(div, [long_button,short_button,br(), br(),longshort_info, br(), br(), price_info, price, br(),trade_amount_info, trade_amount, br(), trade_type_info, trade_type, br(), marginrequirement, br(),capitalconstraint, br(), button, calcleverage,calccapitalconstraint, br(), br(), bets_div, br(), balance_div, br(), channel_balance_button,list_bets_button, br(),br(),close_channel_button]);
+            append_children(div, [long_button,short_button,br(), br(),longshort_info, br(), br(), price_info, price, br(),trade_amount_info, trade_amount, br(), trade_type_info, trade_type, br(), marginrequirement, br(),capitalconstraint, br(), br(), button, calcleverage,calccapitalconstraint, br(), br(), bets_div, br(), balance_div, br(), channel_balance_button,list_bets_button, br(),br(),close_channel_button]);
 
             lightning_button.onclick = function() { lightning_spend(pubkey); };
             channel_balance_button.onclick = function() {refresh_balance(pubkey);};
@@ -636,9 +636,9 @@ function returnTrueFalse(_bool2) {
         channel_warning();
 
 
-  //      populateStorage();
+        populateStorage();
 
-        console.log("CHANNEL MANAGER: " + JSON.stringify(channel_manager));
+      //  console.log("CHANNEL MANAGER: " + JSON.stringify(channel_manager));
     }
 
     //Controller
@@ -716,10 +716,21 @@ function returnTrueFalse(_bool2) {
         //variable_public_get(["txs", [-6, sstx]], function(x) {});
         var spk = s2spk[1];
         var cd = new_cd(spk, s2spk, [], [], expiration, cid);
+
+    //    populateStorage();
+
+
         write(acc2, cd);
+
+
+
         channel_warning();
+
+
+          console.log("refresh channels interfaces makechannelfunc2");
+        //fix this later
         refresh_channels_interfaces(pubkey);
-        populateStorage();
+    //    populateStorage();
 
     }
 

@@ -15,6 +15,12 @@ if (document.URL[0] == 'f') {
 } else {
     console.log("running light node served from a full node");
     server_port.value = document.URL.split(":")[2].substring(0, 4);
+
+
+
+
+
+
 };
 //server_port.setAttribute("type", "text");
 //var server_port_info = document.createElement("h8");
