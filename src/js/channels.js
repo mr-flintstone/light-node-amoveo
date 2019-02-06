@@ -4,6 +4,8 @@ function channels_main() {
     var tv = -1; //This variable stores how much it costs in satoshis to keep a channel open, per veo being stored, per block of times being stored. -1 is invalid, we store this until we can ask the server for the real value.
     function read(x) {
 	console.log("read channel ");
+  console.log("here is x:" + x);
+  console.log("here is the channel manager: "+channel_manager[x]);
 	console.log(JSON.stringify(x));
         var y = channel_manager[x];
         if (y == undefined) {
@@ -421,6 +423,8 @@ function returnTrueFalse(_bool2) {
 	bets_div.id = "bets_div";
         //check if we have a chnnel with the server yet.
         //if we don't, then give an interface for making one.
+
+        console.log("before read pubkey: " + pubkey);
         if (read(pubkey) == undefined) {
 
             console.log(pubkey);
@@ -717,19 +721,18 @@ function returnTrueFalse(_bool2) {
         var spk = s2spk[1];
         var cd = new_cd(spk, s2spk, [], [], expiration, cid);
 
-    //    populateStorage();
-
 
         write(acc2, cd);
-
-
-
         channel_warning();
+        refresh_channels_interfaces(pubkey);
+
+
 
 
           console.log("refresh channels interfaces makechannelfunc2");
+//          populateStorage();
+
         //fix this later
-        refresh_channels_interfaces(pubkey);
     //    populateStorage();
 
     }
