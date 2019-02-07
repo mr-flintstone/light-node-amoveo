@@ -94,7 +94,7 @@ function headers_main() {
             top_header = header;
 	    //console.log("wallet text update");
 //            wallet_text.innerHTML = JSON.stringify([["height", header[1]], ["total work", (Math.floor(header[9]/100000000))]]);
-            wallet_text.innerHTML = "Height: " + header[1] + " / " + serverheight;
+            wallet_text.innerHTML = "Height: " + header[1] + "/" + serverheight;
             wallet_text.style.fontStyle = "normal";
             //JSON.stringify([["height", header[1]], ["total work", (Math.floor(header[9]/100000000))]]);
 

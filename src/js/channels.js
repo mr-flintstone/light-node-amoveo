@@ -275,7 +275,6 @@ if (JSON.stringify(channel_manager) == "{}"){
       console.log("PUBKEY" + string_to_array(atob(keys.pub())));
       console.log("PUBKEY2" + keys.pub().replace(/"/g, ''));
 
-//load_channels_localLite
 
         channel_manager = JSON.parse(localStorage.getItem(keys.pub() + 'channelData'));
           console.log("NULLTESTING: " + (localStorage.getItem(keys.pub() + 'channelData') == null));
@@ -306,30 +305,6 @@ if (JSON.stringify(channel_manager) == "{}"){
 
     }
 
-    function load_channels_localLite() {
-
-      console.log("PUBKEY" + string_to_array(atob(keys.pub())));
-      console.log("PUBKEY2" + keys.pub().replace(/"/g, ''));
-
-
-
-        channel_manager = JSON.parse(localStorage.getItem(keys.pub() + 'channelData'));
-          console.log("NULLTESTING: " + (localStorage.getItem(keys.pub() + 'channelData') == null));
-      if ((JSON.stringify(localStorage.getItem(keys.pub() + 'channelData')) == null)) {
-
-      }else{
-
-  //        variable_public_get(["pubkey"], function(pubkey) {
-  //          return refresh_balance(pubkey);
-  //          })
-
-    //        stablecoin_UI();
-}
-
-        console.log("PUBKEY" + keys.pub());
-
-
-    }
 
     function refresh_channels_interfaces(pubkey, callback) {
         console.log("refresh channels interfaces");
@@ -691,6 +666,8 @@ function returnTrueFalse(_bool2) {
             variable_public_get(["new_channel", stx, sspk, expiration], function(x) { return channels3(x, expiration, pubkey, spk, tx) });
         }
     }
+
+
     function channels3(x, expiration, pubkey, spk, tx_original) {
         var sstx = x[1];
         var s2spk = x[2];
@@ -724,25 +701,25 @@ function returnTrueFalse(_bool2) {
 
         write(acc2, cd);
         channel_warning();
+        populateStorage();
+
         refresh_channels_interfaces(pubkey);
 
 
 
 
           console.log("refresh channels interfaces makechannelfunc2");
-//          populateStorage();
 
-        //fix this later
-    //    populateStorage();
+
 
     }
 
 
-    function refresh_balance2(pubkey){
+  //  function refresh_balance2(pubkey){
       //  refresh_balance(pubkey);
-      bets_object.main;
+  //    bets_object.main;
 
-    }
+  //  }
     function refresh_balance(pubkey) {
         //console.log(channel_manager[pubkey]);
         console.log("your pubkey: " + keys.pub());
@@ -891,8 +868,7 @@ spk currently looks like this.
             write: write,
 	    ss_to_external: ss_to_external,
       loadchannelslocal_final: (function() { load_channels_local(); }),
-
-    loadchannelsreturn: (function() { load_channels_localLite(); }),
+      cmanager : channel_manager,
   loadchannelsreturn2: (function() { refresh_channels_interfaces(pubkey); }),
   loadchannelsreturn3: (function() { refresh_balance(pubkey); }),
   popStorage: (function() { populateStorage(); })}
@@ -901,35 +877,3 @@ spk currently looks like this.
 
 
 var channels_object = channels_main();
-
-
-function load_channels_localGlobal() {
-
-  console.log("PUBKEY" + string_to_array(atob(keys.pub())));
-  console.log("PUBKEY2" + keys.pub().replace(/"/g, ''));
-
-
-
-    channel_manager = JSON.parse(localStorage.getItem(keys.pub() + 'channelData'));
-      console.log("NULLTESTING: " + (JSON.stringify(localStorage.getItem(keys.pub() + 'channelData')) == null));
-
-
-  if ((JSON.stringify(localStorage.getItem(keys.pub() + 'channelData')) == null)) {
-
-  }else{
-    console.log("nulltesting pass");
-    variable_public_get(["pubkey"], function(pubkey) {
-        return channels_main.refresh_channels_interfaces(pubkey);
-      })
-
-      variable_public_get(["pubkey"], function(pubkey) {
-        return channels_main.refresh_balance(pubkey);
-        })
-
-        stablecoin_UI();
-}
-
-    console.log("PUBKEY" + keys.pub());
-
-
-}

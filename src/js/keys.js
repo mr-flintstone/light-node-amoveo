@@ -217,8 +217,17 @@ function keys_function1() {
             load_text.style.display = "none";
             file_selector.style.display = "none";
               //disabling for now
-            return channels_object.loadchannelslocal_final(pubkey_64);
 
+              console.log("here is channel object: " + (localStorage.getItem(keys.pub())));
+            //we need to basically say only do this if a channel hasnt already been opened  . we can start by checking the channel state. if it's undefined, dont load it.
+          //  console.log("here is the channel manager at this time:" +channels_object.cmanager)
+              if ((localStorage.getItem(keys.pub() + 'channelData') == null)){
+
+                  console.log("channel manager empty, aborting local channel load");
+              } else {
+                  console.log("channel manager defined, updating local channel state");
+                    return channels_object.loadchannelslocal_final(pubkey_64);
+}
       //      return channels_object.loadchannelsreturn2(pubkey_64);
       //      stablecoin_UI();
 
